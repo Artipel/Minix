@@ -1,0 +1,31 @@
+## http://bochs.sourceforge.net/
+## man bochsrc
+## man bochs
+
+plugin_ctrl: sound=0, sb16=0, speaker=0
+memory: guest=64, host=64
+
+romimage: file=$BXSHARE/BIOS-bochs-latest
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path="minix203.img", cylinders=615, heads=6, spt=17
+boot: c
+
+floppya: 1_44=floppy.img, status=inserted
+
+log: .bochsout.txt
+
+panic: action=ask
+error: action=report
+info: action=report
+debug: action=ignore
+
+mouse: enabled=0
+
+config_interface: textconfig
+config_interface: wx
+
+display_library: wx
+
+
